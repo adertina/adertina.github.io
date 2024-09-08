@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<!-- Import horror, girly, and playful fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Pacifico&family=Poppins:wght@700&family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+
+<title>POPHEADSCIRCLEJERK.COM</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling using the light peach from the palette */
+body {
+    background-color: #F9E5D7; /* Light peach background */
+    color: #333;
+    font-family: 'Nunito', sans-serif; /* Cute and professional body text */
+    line-height: 1.6;
+    margin: 0;
+    padding: 50px 120px; /* Larger margins for body */
+    text-align: left;
+}
+
+/* Header styling, floating on top with muted teal background */
+header {
+    width: 100%;
+    padding: 0; /* No margins or padding */
+    background-color: #79A6A3; /* Muted teal from the palette */
+    background-image: url('https://64.media.tumblr.com/50a31ed363f1a172afafacf0f9a57ad2/579280c9d1a51790-d7/s640x960/0ac9acf1ed4fe402a46b3299dc0a534230d5d8ca.pnj');
+    background-size: cover; /* Ensure image covers the entire header */
+    background-position: center; /* Center the background image */
+    opacity: 0.8; /* Slight transparency for a softer look */
+    border-bottom: 2px solid #79A6A3; /* Greenish teal border for the header */
+    z-index: 1000;
+    position: fixed; /* Floating on top */
+    top: 0; /* Stick to the top */
+    left: 0;
+}
+
+/* Header title */
+header h1 {
+    font-family: 'Creepster', cursive; /* Horror font for the title */
+    font-size: 2.5em; /* Title size */
+    color: #fff; /* White title for contrast against teal background */
+    letter-spacing: 2px;
+    margin: 0;
+    padding: 20px 0; /* Padding to center the title vertically */
+    text-align: center;
+}
+
+/* Subreddit link, matching size with RSS buttons */
+header .subreddit-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+header .subreddit-link a {
+    text-decoration: none;
+    font-family: 'Pacifico', cursive;
+    font-size: 0.9em; /* Match size with the RSS buttons */
+    color: #fff; /* White text */
+    background-color: #E7926C; /* Coral-orange background */
+    padding: 4px 8px; /* Same padding as the RSS buttons */
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+}
+
+header .subreddit-link a:hover {
+    background-color: #EEC1A4; /* Light peach on hover */
+}
+
+/* Medium titles in the header, styled like cute smaller buttons */
+header .medium-titles {
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.6em; /* Much smaller size for Medium titles */
+    color: #fff; /* White text */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+header .medium-titles a {
+    margin: 2px;
+    padding: 4px 8px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #E7926C; /* Coral-orange for the Medium titles */
+    border-radius: 15px;
+    font-size: 0.9em;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+header .medium-titles a:hover {
+    background-color: #EEC1A4; /* Light peach on hover */
+}
+
+/* Adjust page content to accommodate the floating header */
+body {
+    padding-top: 200px; /* Enough space for floating header */
+}
+
+/* Post styling with cute pastel border and black heart emoji */
+.medium-post {
+    background-color: #fff;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 15px;
+    border: 2px solid #EEC1A4; /* Light peach border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow */
+    text-align: left; /* Left-align the text in posts */
+    position: relative;
+}
+
+.medium-post:before {
+    content: "🖤";
+    font-size: 1.5em;
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    color: #E5B36A; /* Yellow from the palette */
+}
+
+.medium-post h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8em;
+    color: #E7926C; /* Coral-orange for post titles */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.medium-post a {
+    text-decoration: none;
+    color: #E7926C;
+}
+
+.medium-post a:hover {
+    text-decoration: underline;
+}
+
+.medium-post p {
+    color: #555;
+    font-size: 1.1em;
+    font-family: 'Nunito', sans-serif; /* Cute and girly font for the body */
+}
+
+/* Center photos in Medium posts */
+.medium-post img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image */
+    border-radius: 10px;
+    border: none; /* No borders on the photos */
+}
+
+/* Footer styling with handwritten font */
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 1.2em;
+    background-color: #C7D7CA; /* Mint green for footer */
+    color: #7b1fa2;
+    font-family: 'Amatic SC', cursive; /* Handwritten font for footer */
+    border-top: 2px solid #E7926C;
+    margin: 0; /* Remove footer margin */
+    width: 100%;
+}
+
+footer .kazakh-flag {
+    font-size: 1.5em; /* Bigger flag emoji for emphasis */
+}
+
+/* Mobile optimization */
+@media screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2.3em;
+    }
+
+    header .medium-titles {
+        font-size: 0.7em; /* Adjusted for mobile */
+    }
+
+    .medium-post h3 {
+        font-size: 1.5em;
+    }
+}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+/* Remove Tumblr iframe controls */
+document.addEventListener("DOMContentLoaded", function() {
+    var iframeControlsBackground = document.querySelector(".iframe-controls-background");
+    if (iframeControlsBackground) {
+        iframeControlsBackground.remove();
+    }
+
+    /* Additional removal for both mobile and PC iframes/popups */
+    var iframes = document.querySelectorAll("iframe");
+    iframes.forEach(function(iframe) {
+        iframe.remove();
+    });
+});
+
+/* Array of fun and femme emojis */
+const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
+
+/* Get random emoji */
+function getRandomEmoji() {
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+
+/* Load Medium Titles with emojis */
+function loadMediumTitles() {
+    let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const mediumTitles = document.querySelector('.medium-titles');
+        data.items.forEach(item => {
+            let emojiBefore = getRandomEmoji();
+            let emojiAfter = getRandomEmoji();
+            /* Add random emojis directly when generating the titles */
+            let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
+            mediumTitles.innerHTML += mediumTitleElement;
+        });
+    });
+}
+
+/* Embed Medium Posts from 'popheadscirclejerk' feed */
+function loadMediumFeed() {
+    let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const postsContainer = document.getElementById('medium-posts');
+        data.items.forEach(item => {
+            let postElement = `
+                <div class="medium-post">
+                    <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                    <p>${item.description}</p>
+                    ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Image">` : ''}
+                </div>
+            `;
+            postsContainer.innerHTML += postElement;
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadMediumTitles();
+    loadMediumFeed();
+});
+</script>
+
+</head>
+
+<body>
+<header>
+    <!-- Fun, horror-style white title with gray background -->
+    <h1>POPHEADSCIRCLEJERK.COM</h1>
+
+    <!-- Official Subreddit Link -->
+    <div class="subreddit-link">
+        <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Official Subreddit</a>
+    </div>
+
+    <!-- Medium Titles with Random Emojis Before and After -->
+    <div class="medium-titles">
+        <!-- Medium article titles will be dynamically loaded here from '@popheadscirclejerk' feed -->
+    </div>
+</header>
+
+<section id="postmargin">
+    <!-- Medium Articles Embed Section from 'popheadscirclejerk' feed -->
+    <div id="medium-posts">
+        <!-- Medium RSS feed posts will be loaded here dynamically -->
+    </div>
+</section>
+
+<footer>
+    made by inzhu in almaty kz <333 <span class="kazakh-flag">🇰🇿</span>
+</footer>
+
+</body>
+</html>
