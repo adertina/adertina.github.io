@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
- 
+
 /* Body styling using the light peach from the palette */
 body {
     background-color: #F9E5D7; /* Light peach background */
@@ -43,7 +43,7 @@ header h1 {
     text-align: center;
 }
 
-/* Subreddit link, matching size with RSS buttons */
+/* Subreddit link with cursive font */
 header .subreddit-link {
     text-align: center;
     margin-top: 10px;
@@ -51,11 +51,11 @@ header .subreddit-link {
 
 header .subreddit-link a {
     text-decoration: none;
-    font-family: 'Pacifico', cursive;
-    font-size: 0.9em; /* Match size with the RSS buttons */
+    font-family: 'Pacifico', cursive; /* Cursive font for button */
+    font-size: 1.1em; /* Larger size for better readability */
     color: #fff; /* White text */
     background-color: #E7926C; /* Coral-orange background */
-    padding: 4px 8px; /* Same padding as the RSS buttons */
+    padding: 8px 16px; /* More padding for larger button */
     border-radius: 15px;
     transition: background-color 0.3s ease;
 }
