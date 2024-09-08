@@ -12,7 +12,7 @@ body {
     font-family: 'Comfortaa', sans-serif; /* Cute and professional body text with Latin and Cyrillic support */
     line-height: 1.6;
     margin: 0;
-    padding: 50px 120px; /* Larger margins for body */
+    padding: 50px 120px; /* Larger margins for desktop */
     text-align: left;
 }
 
@@ -170,7 +170,7 @@ footer .kazakh-flag {
 /* Mobile optimization */
 @media screen and (max-width: 768px) {
     body {
-        padding: 20px; /* Reduced padding for mobile */
+        padding: 0; /* Remove all padding */
     }
 
     header h1 {
@@ -188,5 +188,10 @@ footer .kazakh-flag {
     /* Remove any margin from the body on mobile */
     #postmargin {
         margin: 0;
+        padding: 15px; /* Add smaller padding to prevent text from touching the screen edges */
+    }
+
+    section {
+        padding: 0; /* Remove section padding on mobile */
     }
 }
