@@ -9,7 +9,7 @@
 body {
     background-color: #F9E5D7; /* Light peach background */
     color: #333;
-    font-family: 'Nunito', sans-serif; /* Cute and professional body text */
+    font-family: 'Comfortaa', sans-serif; /* Cute and professional body text with Latin and Cyrillic support */
     line-height: 1.6;
     margin: 0;
     padding: 50px 120px; /* Larger margins for body */
@@ -67,7 +67,7 @@ header .subreddit-link a:hover {
 /* Medium titles in the header, styled like cute smaller buttons */
 header .medium-titles {
     margin-top: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     font-size: 0.6em; /* Much smaller size for Medium titles */
     color: #fff; /* White text */
     display: flex;
@@ -118,7 +118,7 @@ body {
 }
 
 .medium-post h3 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     font-size: 1.8em;
     color: #E7926C; /* Coral-orange for post titles */
     margin-bottom: 10px;
@@ -137,7 +137,7 @@ body {
 .medium-post p {
     color: #555;
     font-size: 1.1em;
-    font-family: 'Nunito', sans-serif; /* Cute and girly font for the body */
+    font-family: 'Comfortaa', sans-serif; /* Cute and girly font for the body */
 }
 
 /* Center photos in Medium posts */
@@ -169,6 +169,10 @@ footer .kazakh-flag {
 
 /* Mobile optimization */
 @media screen and (max-width: 768px) {
+    body {
+        padding: 20px; /* Reduced padding for mobile */
+    }
+
     header h1 {
         font-size: 2.3em;
     }
@@ -179,5 +183,10 @@ footer .kazakh-flag {
 
     .medium-post h3 {
         font-size: 1.5em;
+    }
+
+    /* Remove any margin from the body on mobile */
+    #postmargin {
+        margin: 0;
     }
 }
