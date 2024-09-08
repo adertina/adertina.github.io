@@ -167,6 +167,30 @@ footer .kazakh-flag {
     font-size: 1.5em; /* Bigger flag emoji for emphasis */
 }
 
+/* Arrow buttons for scrolling between posts */
+.scroll-arrows {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-btn {
+    display: block;
+    background-color: #ff69b4;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.arrow-btn:hover {
+    background-color: #EEC1A4;
+}
+
 /* Mobile optimization */
 @media screen and (max-width: 768px) {
     body {
@@ -178,20 +202,23 @@ footer .kazakh-flag {
     }
 
     header .medium-titles {
-        font-size: 0.7em; /* Adjusted for mobile */
+        font-size: 0.7em;
     }
 
     .medium-post h3 {
         font-size: 1.5em;
     }
 
-    /* Remove any margin from the body on mobile */
     #postmargin {
         margin: 0;
-        padding: 15px; /* Add smaller padding to prevent text from touching the screen edges */
+        padding: 15px;
     }
 
     section {
-        padding: 0; /* Remove section padding on mobile */
+        padding: 0;
+    }
+
+    body {
+        padding-top: 300px; /* Ensure this matches the actual height of the header */
     }
 }
