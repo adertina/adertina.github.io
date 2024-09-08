@@ -29,21 +29,33 @@ function getRandomEmoji() {
     return emojis[Math.floor(Math.random() * emojis.length)];
 }
 
-/* Load Medium Titles with emojis */
+/* Detect if on mobile and make changes */
+function isMobileDevice() {
+    return window.innerWidth <= 768; // Typical mobile width breakpoint
+}
+
+/* Load Medium Titles with emojis or show blog link if on mobile */
 function loadMediumTitles() {
-    let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
-    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-    .then(response => response.json())
-    .then(data => {
-        const mediumTitles = document.querySelector('.medium-titles');
-        data.items.forEach(item => {
-            let emojiBefore = getRandomEmoji();
-            let emojiAfter = getRandomEmoji();
-            /* Add random emojis directly when generating the titles */
-            let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
-            mediumTitles.innerHTML += mediumTitleElement;
+    const mediumTitles = document.querySelector('.medium-titles');
+
+    if (isMobileDevice()) {
+        // Replace with a link to the blog on mobile
+        mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Visit the Blog</a>`;
+    } else {
+        // Load Medium Titles for desktop/tablet
+        let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
+        fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+        .then(response => response.json())
+        .then(data => {
+            data.items.forEach(item => {
+                let emojiBefore = getRandomEmoji();
+                let emojiAfter = getRandomEmoji();
+                /* Add random emojis directly when generating the titles */
+                let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
+                mediumTitles.innerHTML += mediumTitleElement;
+            });
         });
-    });
+    }
 }
 
 /* Embed Medium Posts from 'popheadscirclejerk' feed */
@@ -84,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Official Subreddit</a>
     </div>
 
-    <!-- Medium Titles with Random Emojis Before and After -->
+    <!-- Medium Titles or Blog Link (depending on device) -->
     <div class="medium-titles">
-        <!-- Medium article titles will be dynamically loaded here from '@popheadscirclejerk' feed -->
+        <!-- Medium article titles or blog link will be dynamically loaded here -->
     </div>
 </header>
 
