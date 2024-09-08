@@ -167,7 +167,7 @@ footer .kazakh-flag {
     font-size: 1.5em; /* Bigger flag emoji for emphasis */
 }
 
-/* Arrow buttons for scrolling between posts */
+/* Cuter Arrow Buttons for Scrolling */
 .scroll-arrows {
     position: fixed;
     right: 20px;
@@ -185,6 +185,7 @@ footer .kazakh-flag {
     border-radius: 50%;
     font-size: 1.2em;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .arrow-btn:hover {
