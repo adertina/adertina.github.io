@@ -3,7 +3,7 @@
 
 <head>
 
-<!-- Import fonts (Creepster for horror, Comfortaa for body text, Amatic for footer) -->
+<!-- Import fonts (Creepster for horror, Comfortaa for body text, Pacifico for cursive button) -->
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
 
 <title>POPHEADSCIRCLEJERK.COM</title>
@@ -42,7 +42,7 @@ function loadMediumTitles() {
         // Replace with a link to the blog on mobile
         mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Visit the Blog</a>`;
     } else {
-        // Load Medium Titles for desktop/tablet
+        // Load Medium Titles from the '@popheadscirclejerk' feed
         let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
         fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
         .then(response => response.json())
@@ -60,7 +60,7 @@ function loadMediumTitles() {
 
 /* Embed Medium Posts from 'popheadscirclejerk' feed */
 function loadMediumFeed() {
-    let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Embed from popheadscirclejerk feed
+    let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
     fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
     .then(response => response.json())
     .then(data => {
@@ -141,10 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </section>
 
-<!-- Arrow Buttons for Scrolling -->
+<!-- Cuter Arrow Buttons for Scrolling -->
 <div class="scroll-arrows">
-    <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️</button>
-    <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️</button>
+    <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️ 💖</button>
+    <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️ 💖</button>
 </div>
 
 <footer>
