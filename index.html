@@ -78,6 +78,38 @@ function loadMediumFeed() {
     });
 }
 
+/* Scroll to next post */
+function scrollToNextPost() {
+    const posts = document.querySelectorAll('.medium-post');
+    let currentScroll = window.scrollY + window.innerHeight;
+    
+    for (let post of posts) {
+        if (post.offsetTop > currentScroll) {
+            window.scrollTo({
+                top: post.offsetTop,
+                behavior: 'smooth'
+            });
+            break;
+        }
+    }
+}
+
+/* Scroll to previous post */
+function scrollToPreviousPost() {
+    const posts = document.querySelectorAll('.medium-post');
+    let currentScroll = window.scrollY;
+    
+    for (let i = posts.length - 1; i >= 0; i--) {
+        if (posts[i].offsetTop < currentScroll) {
+            window.scrollTo({
+                top: posts[i].offsetTop,
+                behavior: 'smooth'
+            });
+            break;
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadMediumTitles();
     loadMediumFeed();
@@ -108,6 +140,12 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Medium RSS feed posts will be loaded here dynamically -->
     </div>
 </section>
+
+<!-- Arrow Buttons for Scrolling -->
+<div class="scroll-arrows">
+    <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️</button>
+    <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️</button>
+</div>
 
 <footer>
     made by inzhu in almaty kz <333 <span class="kazakh-flag">🇰🇿</span>
