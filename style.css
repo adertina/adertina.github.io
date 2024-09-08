@@ -177,8 +177,8 @@ footer .kazakh-flag {
 
 .arrow-btn {
     display: block;
-    background-color: #ff69b4;
-    color: #fff;
+    background-color: #E7926C; /* Coral-orange for default button color */
+    color: #fff; /* White text */
     border: none;
     padding: 15px;
     margin: 5px 0;
@@ -189,7 +189,7 @@ footer .kazakh-flag {
 }
 
 .arrow-btn:hover {
-    background-color: #EEC1A4;
+    background-color: #EEC1A4; /* Soft peach on hover */
 }
 
 /* Mobile optimization */
