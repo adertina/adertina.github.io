@@ -8,7 +8,7 @@
 
 .arrow-btn {
     display: block;
-    background-color: #E7926C; /* Coral-orange for default button color */
+    background-color: #E7926C; /* Coral-orange for the button background */
     color: #fff; /* White text */
     border: none;
     padding: 15px;
@@ -20,8 +20,9 @@
 }
 
 .arrow-btn:hover {
-    background-color: #EEC1A4; /* Soft peach on hover */
+    background-color: #C7D7CA; /* Mint green on hover */
 }
+
 
 /* Basic reset */
 * {
