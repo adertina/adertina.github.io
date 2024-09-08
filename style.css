@@ -1,3 +1,28 @@
+/* Cuter Arrow Buttons for Scrolling */
+.scroll-arrows {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.arrow-btn {
+    display: block;
+    background-color: #E7926C; /* Coral-orange for default button color */
+    color: #fff; /* White text */
+    border: none;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 50%;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background-color: #EEC1A4; /* Soft peach on hover */
+}
+
 /* Basic reset */
 * {
     margin: 0;
@@ -165,31 +190,6 @@ footer {
 
 footer .kazakh-flag {
     font-size: 1.5em; /* Bigger flag emoji for emphasis */
-}
-
-/* Cuter Arrow Buttons for Scrolling */
-.scroll-arrows {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.arrow-btn {
-    display: block;
-    background-color: #E7926C; /* Coral-orange for default button color */
-    color: #fff; /* White text */
-    border: none;
-    padding: 15px;
-    margin: 5px 0;
-    border-radius: 50%;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.arrow-btn:hover {
-    background-color: #EEC1A4; /* Soft peach on hover */
 }
 
 /* Mobile optimization */
