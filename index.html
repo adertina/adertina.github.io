@@ -13,7 +13,64 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Style Link -->
 <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
+
+<!-- Script to load Medium RSS feed dynamically -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+/* Array of fun and femme emojis */
+const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
+
+/* Get random emoji */
+function getRandomEmoji() {
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+
+/* Load Medium Titles with emojis */
+function loadMediumTitles() {
+    let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const mediumTitles = document.querySelector('.medium-titles');
+        data.items.forEach(item => {
+            let emojiBefore = getRandomEmoji();
+            let emojiAfter = getRandomEmoji();
+            /* Add random emojis directly when generating the titles */
+            let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
+            mediumTitles.innerHTML += mediumTitleElement;
+        });
+    });
+}
+
+/* Embed Medium Posts from 'popheadscirclejerk' feed */
+function loadMediumFeed() {
+    let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Embed from popheadscirclejerk feed
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const postsContainer = document.getElementById('medium-posts');
+        data.items.forEach(item => {
+            let postElement = `
+                <div class="medium-post">
+                    <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                    <p>${item.description}</p>
+                    ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Image">` : ''}
+                </div>
+            `;
+            postsContainer.innerHTML += postElement;
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadMediumTitles();
+    loadMediumFeed();
+});
+</script>
 
 </head>
 
