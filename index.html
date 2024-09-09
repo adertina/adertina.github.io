@@ -1,9 +1,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="kk" lang="kk">
 
 <head>
-<!-- Import fonts (Creepster for horror, Comfortaa for body text, Pacifico for cursive button) -->
-<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
+
+<!-- Шрифттерді енгізу -->
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap&subset=cyrillic,latin" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css">
 
 <title>POPHEADSCIRCLEJERK.COM</title>
 <link rel="shortcut icon" href="{Favicon}">
@@ -13,129 +15,35 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Style Link -->
-<link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
-
-<!-- Script to load Medium RSS feed dynamically -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-<script>
-/* Array of fun and femme emojis */
-const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
-
-/* Get random emoji */
-function getRandomEmoji() {
-    return emojis[Math.floor(Math.random() * emojis.length)];
-}
-
-/* Detect if on mobile and make changes */
-function isMobileDevice() {
-    return window.innerWidth <= 768; // Typical mobile width breakpoint
-}
-
-/* Load Medium Titles with emojis or show blog link if on mobile */
-function loadMediumTitles() {
-    const mediumTitles = document.querySelector('.medium-titles');
-
-    if (isMobileDevice()) {
-        // Replace with a link to the blog on mobile
-        mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Visit the Blog</a>`;
-    } else {
-        // Load Medium Titles from the '@popheadscirclejerk' feed
-        let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
-        fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-        .then(response => response.json())
-        .then(data => {
-            data.items.forEach(item => {
-                let emojiBefore = getRandomEmoji();
-                let emojiAfter = getRandomEmoji();
-                /* Add random emojis directly when generating the titles */
-                let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
-                mediumTitles.innerHTML += mediumTitleElement;
-            });
-        });
-    }
-}
-
-/* Embed Medium Posts from 'popheadscirclejerk' feed with a "Read More" option */
-function loadMediumFeed() {
-    let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
-    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-    .then(response => response.json())
-    .then(data => {
-        const postsContainer = document.getElementById('medium-posts');
-        data.items.forEach(item => {
-            let postElement = `
-                <div class="medium-post">
-                    <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                    <p class="short-description">${item.description.split(' ').slice(0, 30).join(' ')}...</p>
-                    <p class="full-description" style="display:none;">${item.description}</p>
-                    ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Image">` : ''}
-                    <button class="read-more-btn" onclick="toggleFullPost(this)">Read More</button>
-                </div>
-            `;
-            postsContainer.innerHTML += postElement;
-        });
-    });
-}
-
-/* Function to toggle full post visibility */
-function toggleFullPost(button) {
-    const fullDescription = button.previousElementSibling;
-    const shortDescription = button.previousElementSibling.previousElementSibling;
-
-    if (fullDescription.style.display === "none") {
-        fullDescription.style.display = "block";
-        shortDescription.style.display = "none";
-        button.textContent = "Read Less";
-    } else {
-        fullDescription.style.display = "none";
-        shortDescription.style.display = "block";
-        button.textContent = "Read More";
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadMediumTitles();
-    loadMediumFeed();
-});
-</script>
-
 </head>
 
 <body>
 <header>
-    <!-- Fun, horror-style white title with gray background -->
     <h1>POPHEADSCIRCLEJERK.COM</h1>
 
-    <!-- Official Subreddit Link with cursive font -->
     <div class="subreddit-link">
-        <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Official Subreddit</a>
+      <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Ресми Subreddit</a>
     </div>
 
-    <!-- Medium Titles or Blog Link (depending on device) -->
+    <!-- Medium тақырыптары -->
     <div class="medium-titles">
-        <!-- Medium article titles or blog link will be dynamically loaded here -->
+        <!-- Тақырыптар осында жүктеледі -->
     </div>
 </header>
 
 <section id="postmargin">
-    <!-- Medium Articles Embed Section from 'popheadscirclejerk' feed -->
-    <div id="medium-posts">
-        <!-- Medium RSS feed posts will be loaded here dynamically -->
-    </div>
+  <div id="medium-posts">
+    <!-- Medium RSS фид посттары осында жүктеледі -->
+  </div>
 </section>
 
-<!-- Cuter Arrow Buttons for Scrolling -->
-<div class="scroll-arrows">
-    <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️ 💖</button>
-    <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️ 💖</button>
-</div>
-
 <footer>
-    made by inzhu in almaty kz <333 <span class="kazakh-flag">🇰🇿</span>
+  жасалған Inzhu Алматыдан <333 <span class="kazakh-flag">🇰🇿</span>
 </footer>
 
-</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="script.js"></script>
 
+</body>
 </html>
+ 
