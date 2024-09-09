@@ -215,11 +215,36 @@
   footer .kazakh-flag {
       font-size: 1.5em;
   }
+
+  /* Mobile Styles */
+  @media screen and (max-width: 768px) {
+      body {
+          padding: 0; /* Remove margins on mobile */
+      }
+
+      /* Hide the Medium titles on mobile and replace with a button */
+      .medium-titles {
+          display: none;
+      }
+
+      .blog-button {
+          display: block;
+          text-align: center;
+          font-family: 'Pacifico', cursive;
+          background-color: #E7926C;
+          color: white;
+          padding: 10px;
+          margin-top: 20px;
+          border-radius: 15px;
+      }
+
+      .blog-button:hover {
+          background-color: #EEC1A4;
+      }
+  }
 </style>
 
-<!-- RSS-ті өңдеу үшін JavaScript -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
+<!-- RSS and interactivity embedded within HTML -->
 <script>
 /* Эмодзилер тізімі */
 const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
@@ -296,6 +321,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="medium-titles">
         <!-- Тақырыптар осында жүктеледі -->
     </div>
+
+    <!-- Mobile button for blog link -->
+    <a href="https://blog.popheadscirclejerk.com" class="blog-button">Блогқа өту</a>
+
 </header>
 
 <section id="postmargin">
