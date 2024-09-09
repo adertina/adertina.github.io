@@ -1,127 +1,139 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="kk" lang="kk">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <!-- Шрифтерді импорттау -->
-    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
-    <title>POPHEADSCIRCLEJERK.COM</title>
-    <link rel="shortcut icon" href="{Favicon}">
-    <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- Сыртқы CSS файлға сілтеме -->
-    <link rel="stylesheet" href="style.css"> <!-- Сыртқы CSS файлы -->
+<!-- Import fonts (Creepster for horror, Comfortaa for body text, Pacifico for cursive button) -->
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
 
-    <!-- JavaScript for RSS feed -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-        /* Әзілқой және көңілді эмодзилер массиві */
-        const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
+<title>POPHEADSCIRCLEJERK.COM</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-        /* Кездейсоқ эмодзи алу */
-        function getRandomEmoji() {
-            return emojis[Math.floor(Math.random() * emojis.length)];
-        }
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        /* Medium арналарын жүктеу немесе мобильді құрылғыда блог сілтемесін көрсету */
-        function loadMediumTitles() {
-            const mediumTitles = document.querySelector('.medium-titles');
+<!-- Style Link -->
+<link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 
-            if (window.innerWidth <= 768) {
-                mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа кіріңіз</a>`;
-            } else {
-                let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // @popheadscirclejerk арнасының тақырыптары
-                fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-                .then(response => response.json())
-                .then(data => {
-                    data.items.forEach(item => {
-                        let emojiBefore = getRandomEmoji();
-                        let emojiAfter = getRandomEmoji();
-                        let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
-                        mediumTitles.innerHTML += mediumTitleElement;
-                    });
-                });
-            }
-        }
+<!-- Script to load Medium RSS feed dynamically -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-        /* 'popheadscirclejerk' арнасынан мақалаларды жүктеу және "Толығырақ оқу" түймесін қосу */
-        function loadMediumFeed() {
-            let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
-            fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-            .then(response => response.json())
-            .then(data => {
-                const postsContainer = document.getElementById('medium-posts');
-                data.items.forEach(item => {
-                    let truncatedDescription = item.description.split(' ').slice(0, 30).join(' ') + '...'; // Show only first 30 words
-                    let postElement = `
-                        <div class="medium-post">
-                            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                            <p class="short-description">${truncatedDescription}</p>
-                            <p class="full-description" style="display:none;">${item.description}</p>
-                            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Сурет" class="post-image">` : ''}
-                            <button class="read-more-btn" onclick="toggleFullPost(this)">Толығырақ оқу</button>
-                        </div>
-                    `;
-                    postsContainer.innerHTML += postElement;
-                });
+<script>
+/* Array of fun and femme emojis */
+const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
+
+/* Get random emoji */
+function getRandomEmoji() {
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+
+/* Detect if on mobile and make changes */
+function isMobileDevice() {
+    return window.innerWidth <= 768; // Typical mobile width breakpoint
+}
+
+/* Load Medium Titles with emojis or show blog link if on mobile */
+function loadMediumTitles() {
+    const mediumTitles = document.querySelector('.medium-titles');
+
+    if (isMobileDevice()) {
+        // Replace with a link to the blog on mobile
+        mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Visit the Blog</a>`;
+    } else {
+        // Load Medium Titles from the '@popheadscirclejerk' feed
+        let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // Titles from @popheadscirclejerk feed
+        fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+        .then(response => response.json())
+        .then(data => {
+            data.items.forEach(item => {
+                let emojiBefore = getRandomEmoji();
+                let emojiAfter = getRandomEmoji();
+                /* Add random emojis directly when generating the titles */
+                let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
+                mediumTitles.innerHTML += mediumTitleElement;
             });
-        }
-
-        /* Толық мақаланы көрсету немесе жасыру функциясы */
-        function toggleFullPost(button) {
-            const fullDescription = button.previousElementSibling;
-            const shortDescription = button.previousElementSibling.previousElementSibling;
-
-            if (fullDescription.style.display === "none") {
-                fullDescription.style.display = "block";
-                shortDescription.style.display = "none";
-                button.textContent = "Аз көрсету";
-            } else {
-                fullDescription.style.display = "none";
-                shortDescription.style.display = "block";
-                button.textContent = "Толығырақ оқу";
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadMediumTitles();
-            loadMediumFeed();
         });
-    </script>
+    }
+}
+
+/* Embed Medium Posts from 'popheadscirclejerk' feed with a "Read More" option */
+function loadMediumFeed() {
+    let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const postsContainer = document.getElementById('medium-posts');
+        data.items.forEach(item => {
+            let postElement = `
+                <div class="medium-post">
+                    <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                    <p class="short-description">${item.description.split(' ').slice(0, 30).join(' ')}...</p>
+                    <p class="full-description" style="display:none;">${item.description}</p>
+                    ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Image">` : ''}
+                    <button class="read-more-btn" onclick="toggleFullPost(this)">Read More</button>
+                </div>
+            `;
+            postsContainer.innerHTML += postElement;
+        });
+    });
+}
+
+/* Function to toggle full post visibility */
+function toggleFullPost(button) {
+    const fullDescription = button.previousElementSibling;
+    const shortDescription = button.previousElementSibling.previousElementSibling;
+
+    if (fullDescription.style.display === "none") {
+        fullDescription.style.display = "block";
+        shortDescription.style.display = "none";
+        button.textContent = "Read Less";
+    } else {
+        fullDescription.style.display = "none";
+        shortDescription.style.display = "block";
+        button.textContent = "Read More";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadMediumTitles();
+    loadMediumFeed();
+});
+</script>
+
 </head>
 
 <body>
 <header>
-    <!-- Ақ тақырып сұр фонмен -->
+    <!-- Fun, horror-style white title with gray background -->
     <h1>POPHEADSCIRCLEJERK.COM</h1>
 
-    <!-- Ресми Subreddit сілтемесі курсив шрифтімен -->
+    <!-- Official Subreddit Link with cursive font -->
     <div class="subreddit-link">
-        <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Ресми Subreddit</a>
+        <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Official Subreddit</a>
     </div>
 
-    <!-- Medium тақырыптары немесе блог сілтемесі -->
+    <!-- Medium Titles or Blog Link (depending on device) -->
     <div class="medium-titles">
-        <!-- Мұнда Medium мақалалары жүктеледі -->
+        <!-- Medium article titles or blog link will be dynamically loaded here -->
     </div>
 </header>
 
 <section id="postmargin">
+    <!-- Medium Articles Embed Section from 'popheadscirclejerk' feed -->
     <div id="medium-posts">
-        <!-- 'popheadscirclejerk' арнасынан мақалалар мұнда жүктеледі -->
+        <!-- Medium RSS feed posts will be loaded here dynamically -->
     </div>
 </section>
 
-<!-- Мақалалар арасында айналдыру үшін сүйкімді бағыттауыш түймелер -->
+<!-- Cuter Arrow Buttons for Scrolling -->
 <div class="scroll-arrows">
     <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️ 💖</button>
     <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️ 💖</button>
 </div>
 
 <footer>
-    Inzhu жасаған, Алматы, КЗ <333 <span class="kazakh-flag">🇰🇿</span>
+    made by inzhu in almaty kz <333 <span class="kazakh-flag">🇰🇿</span>
 </footer>
 
 </body>
