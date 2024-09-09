@@ -2,132 +2,118 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="kk" lang="kk">
 
 <head>
-<!-- Шрифтерді импорттау (Creepster атағы үшін, Comfortaa мәтін үшін, Pacifico түймешік үшін) -->
-<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
+    <!-- Шрифтерді импорттау -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
+    <title>POPHEADSCIRCLEJERK.COM</title>
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>POPHEADSCIRCLEJERK.COM</title>
-<link rel="shortcut icon" href="{Favicon}">
-<link rel="alternate" type="application/rss+xml" href="{RSS}">
+    <!-- Сыртқы CSS файлға сілтеме -->
+    <link rel="stylesheet" href="style.css">
+    <!-- JavaScript for RSS feed -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        /* Array of fun and cute emojis */
+        const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
 
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+        function getRandomEmoji() {
+            return emojis[Math.floor(Math.random() * emojis.length)];
+        }
 
-<!-- Стиль сілтемесі -->
-<link rel="stylesheet" href="style.css"> <!-- Сыртқы CSS файлға сілтеме -->
+        function isMobileDevice() {
+            return window.innerWidth <= 768; // Мобильді құрылғының енін анықтау
+        }
 
-<!-- RSS арнасын динамикалық түрде жүктеу үшін скрипт -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        function loadMediumTitles() {
+            const mediumTitles = document.querySelector('.medium-titles');
 
-<script>
-/* Әзілқой және көңілді эмодзилер массиві */
-const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
+            if (isMobileDevice()) {
+                mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа кіріңіз</a>`;
+            } else {
+                let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk';
+                fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+                .then(response => response.json())
+                .then(data => {
+                    data.items.forEach(item => {
+                        let emojiBefore = getRandomEmoji();
+                        let emojiAfter = getRandomEmoji();
+                        let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
+                        mediumTitles.innerHTML += mediumTitleElement;
+                    });
+                });
+            }
+        }
 
-/* Кездейсоқ эмодзи алу */
-function getRandomEmoji() {
-    return emojis[Math.floor(Math.random() * emojis.length)];
-}
-
-/* Мобильді құрылғыны анықтау */
-function isMobileDevice() {
-    return window.innerWidth <= 768; // Мобильдік құрылғының енін анықтау
-}
-
-/* Medium арналарын жүктеу немесе мобильді құрылғыда блог сілтемесін көрсету */
-function loadMediumTitles() {
-    const mediumTitles = document.querySelector('.medium-titles');
-
-    if (isMobileDevice()) {
-        // Мобильді құрылғыда блог сілтемесін ауыстыру
-        mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа кіріңіз</a>`;
-    } else {
-        // Medium арналарын '@popheadscirclejerk' арнасынан жүктеу
-        let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // @popheadscirclejerk арнасының тақырыптары
-        fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-        .then(response => response.json())
-        .then(data => {
-            data.items.forEach(item => {
-                let emojiBefore = getRandomEmoji();
-                let emojiAfter = getRandomEmoji();
-                /* Тақырыптарды жасау кезінде кездейсоқ эмодзилерді қосу */
-                let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
-                mediumTitles.innerHTML += mediumTitleElement;
+        function loadMediumFeed() {
+            let mediumRSS = 'https://medium.com/feed/popheadscirclejerk';
+            fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+            .then(response => response.json())
+            .then(data => {
+                const postsContainer = document.getElementById('medium-posts');
+                data.items.forEach(item => {
+                    let truncatedDescription = item.description.split(' ').slice(0, 30).join(' ') + '...'; // Show only first 30 words
+                    let postElement = `
+                        <div class="medium-post">
+                            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                            <p class="short-description">${truncatedDescription}</p>
+                            <p class="full-description" style="display:none;">${item.description}</p>
+                            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Сурет">` : ''}
+                            <button class="read-more-btn" onclick="toggleFullPost(this)">Толығырақ оқу</button>
+                        </div>
+                    `;
+                    postsContainer.innerHTML += postElement;
+                });
             });
+        }
+
+        function toggleFullPost(button) {
+            const fullDescription = button.previousElementSibling;
+            const shortDescription = button.previousElementSibling.previousElementSibling;
+
+            if (fullDescription.style.display === "none") {
+                fullDescription.style.display = "block";
+                shortDescription.style.display = "none";
+                button.textContent = "Аз көрсету";
+            } else {
+                fullDescription.style.display = "none";
+                shortDescription.style.display = "block";
+                button.textContent = "Толығырақ оқу";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadMediumTitles();
+            loadMediumFeed();
         });
-    }
-}
-
-/* 'popheadscirclejerk' арнасынан мақалаларды жүктеу және "Толығырақ оқу" түймесін қосу */
-function loadMediumFeed() {
-    let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // 'popheadscirclejerk' арнасынан мақалаларды жүктеу
-    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
-    .then(response => response.json())
-    .then(data => {
-        const postsContainer = document.getElementById('medium-posts');
-        data.items.forEach(item => {
-            let truncatedDescription = item.description.split(' ').slice(0, 30).join(' ') + '...'; // Алғашқы 30 сөз
-            let postElement = `
-                <div class="medium-post">
-                    <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                    <p class="short-description">${truncatedDescription}</p>
-                    <p class="full-description" style="display:none;">${item.description}</p>
-                    ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Сурет">` : ''}
-                    <button class="read-more-btn" onclick="toggleFullPost(this)">Толығырақ оқу</button>
-                </div>
-            `;
-            postsContainer.innerHTML += postElement;
-        });
-    });
-}
-
-/* Толық мақаланы көрсету немесе жасыру функциясы */
-function toggleFullPost(button) {
-    const fullDescription = button.previousElementSibling;
-    const shortDescription = button.previousElementSibling.previousElementSibling;
-
-    if (fullDescription.style.display === "none") {
-        fullDescription.style.display = "block";
-        shortDescription.style.display = "none";
-        button.textContent = "Аз көрсету";
-    } else {
-        fullDescription.style.display = "none";
-        shortDescription.style.display = "block";
-        button.textContent = "Толығырақ оқу";
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadMediumTitles();
-    loadMediumFeed();
-});
-</script>
-
+    </script>
 </head>
 
 <body>
 <header>
-    <!-- Қызықты, қорқынышты стильдегі ақ тақырып сұр фонмен -->
+    <!-- Ақ тақырып сұр фонмен -->
     <h1>POPHEADSCIRCLEJERK.COM</h1>
 
-    <!-- Ресми Subreddit сілтемесі курсив шрифтімен -->
+    <!-- Ресми Subreddit сілтемесі -->
     <div class="subreddit-link">
         <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Ресми Subreddit</a>
     </div>
 
-    <!-- Medium тақырыптары немесе блог сілтемесі (құрылғыға байланысты) -->
+    <!-- Medium арнасының тақырыптары -->
     <div class="medium-titles">
-        <!-- Medium мақалаларының тақырыптары немесе блог сілтемесі мұнда жүктеледі -->
+        <!-- Мұнда Medium мақалалары жүктеледі -->
     </div>
 </header>
 
 <section id="postmargin">
-    <!-- 'popheadscirclejerk' арнасынан мақалаларды енгізу -->
     <div id="medium-posts">
-        <!-- Medium RSS арнасынан мақалалар мұнда жүктеледі -->
+        <!-- 'popheadscirclejerk' арнасынан мақалалар мұнда жүктеледі -->
     </div>
 </section>
 
-<!-- Мақалалар арасында айналдыру үшін сүйкімді бағыттауыш түймелер -->
+<!-- Мақалалар арасында айналдыру үшін түймелер -->
 <div class="scroll-arrows">
     <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️ 💖</button>
     <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️ 💖</button>
@@ -136,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
 <footer>
     Inzhu жасаған, Алматы, КЗ <333 <span class="kazakh-flag">🇰🇿</span>
 </footer>
-
 </body>
 
 </html>
