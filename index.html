@@ -10,30 +10,29 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <!-- Сыртқы CSS файлға сілтеме -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Сыртқы CSS файлы -->
+
     <!-- JavaScript for RSS feed -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
-        /* Array of fun and cute emojis */
+        /* Әзілқой және көңілді эмодзилер массиві */
         const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
 
+        /* Кездейсоқ эмодзи алу */
         function getRandomEmoji() {
             return emojis[Math.floor(Math.random() * emojis.length)];
         }
 
-        function isMobileDevice() {
-            return window.innerWidth <= 768; // Мобильді құрылғының енін анықтау
-        }
-
+        /* Medium арналарын жүктеу немесе мобильді құрылғыда блог сілтемесін көрсету */
         function loadMediumTitles() {
             const mediumTitles = document.querySelector('.medium-titles');
 
-            if (isMobileDevice()) {
+            if (window.innerWidth <= 768) {
                 mediumTitles.innerHTML = `<a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа кіріңіз</a>`;
             } else {
-                let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk';
+                let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // @popheadscirclejerk арнасының тақырыптары
                 fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
                 .then(response => response.json())
                 .then(data => {
@@ -47,8 +46,9 @@
             }
         }
 
+        /* 'popheadscirclejerk' арнасынан мақалаларды жүктеу және "Толығырақ оқу" түймесін қосу */
         function loadMediumFeed() {
-            let mediumRSS = 'https://medium.com/feed/popheadscirclejerk';
+            let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
             fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
             .then(response => response.json())
             .then(data => {
@@ -60,7 +60,7 @@
                             <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
                             <p class="short-description">${truncatedDescription}</p>
                             <p class="full-description" style="display:none;">${item.description}</p>
-                            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Сурет">` : ''}
+                            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Сурет" class="post-image">` : ''}
                             <button class="read-more-btn" onclick="toggleFullPost(this)">Толығырақ оқу</button>
                         </div>
                     `;
@@ -69,6 +69,7 @@
             });
         }
 
+        /* Толық мақаланы көрсету немесе жасыру функциясы */
         function toggleFullPost(button) {
             const fullDescription = button.previousElementSibling;
             const shortDescription = button.previousElementSibling.previousElementSibling;
@@ -96,12 +97,12 @@
     <!-- Ақ тақырып сұр фонмен -->
     <h1>POPHEADSCIRCLEJERK.COM</h1>
 
-    <!-- Ресми Subreddit сілтемесі -->
+    <!-- Ресми Subreddit сілтемесі курсив шрифтімен -->
     <div class="subreddit-link">
         <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Ресми Subreddit</a>
     </div>
 
-    <!-- Medium арнасының тақырыптары -->
+    <!-- Medium тақырыптары немесе блог сілтемесі -->
     <div class="medium-titles">
         <!-- Мұнда Medium мақалалары жүктеледі -->
     </div>
@@ -113,7 +114,7 @@
     </div>
 </section>
 
-<!-- Мақалалар арасында айналдыру үшін түймелер -->
+<!-- Мақалалар арасында айналдыру үшін сүйкімді бағыттауыш түймелер -->
 <div class="scroll-arrows">
     <button class="arrow-btn up-arrow" onclick="scrollToPreviousPost()">⬆️ 💖</button>
     <button class="arrow-btn down-arrow" onclick="scrollToNextPost()">⬇️ 💖</button>
@@ -122,6 +123,7 @@
 <footer>
     Inzhu жасаған, Алматы, КЗ <333 <span class="kazakh-flag">🇰🇿</span>
 </footer>
+
 </body>
 
 </html>
