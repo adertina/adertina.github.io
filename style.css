@@ -5,45 +5,45 @@
     box-sizing: border-box;
 }
 
-/* Ашық шабдалы түсіндегі дене стилі */
+/* Негізгі дене стилі */
 body {
-    background-color: #F9E5D7; /* Ашық шабдалы фон түсі */
+    background-color: #F9E5D7; /* Жұмсақ шабдалы түсі */
     color: #333;
-    font-family: 'Comfortaa', sans-serif; /* Латын және кириллица үшін қолайлы қаріп */
+    font-family: 'Comfortaa', sans-serif; /* Мәтін үшін сүйкімді және кәсіби қаріп */
     line-height: 1.6;
     margin: 0;
-    padding: 50px 120px; /* Үлкен шеттер жұмыс үстелінде */
+    padding: 50px 120px; /* Үлкенірек шегіністер */
     text-align: left;
 }
 
-/* Бас тақырып стилі */
+/* Жоғарғы тақырып */
 header {
     width: 100%;
-    padding: 0; /* Шеттер мен жастық жоқ */
-    background-color: #79A6A3; /* Жасыл көк фон */
+    padding: 0;
+    background-color: #79A6A3; /* Көкшіл-жасыл */
     background-image: url('https://64.media.tumblr.com/50a31ed363f1a172afafacf0f9a57ad2/579280c9d1a51790-d7/s640x960/0ac9acf1ed4fe402a46b3299dc0a534230d5d8ca.pnj');
-    background-size: cover; /* Фон суреті барлық бетке толығымен жабылсын */
-    background-position: center; /* Фон суретін орталыққа орналастыру */
-    opacity: 0.8; /* Жеңіл мөлдірлік */
-    border-bottom: 2px solid #79A6A3; /* Жасыл көк шекара */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8;
+    border-bottom: 2px solid #79A6A3;
     z-index: 1000;
-    position: fixed; /* Тақырып бетте жылжымалы болсын */
+    position: fixed;
     top: 0;
     left: 0;
 }
 
-/* Тақырып */
+/* Тақырып атауы */
 header h1 {
-    font-family: 'Creepster', cursive; /* Қорқынышты қаріп */
-    font-size: 2.5em; /* Тақырып өлшемі */
-    color: #fff; /* Ақ түс */
+    font-family: 'Creepster', cursive;
+    font-size: 2.5em;
+    color: #fff;
     letter-spacing: 2px;
     margin: 0;
-    padding: 20px 0; /* Тақырыпты тік орталыққа орналастыру */
+    padding: 20px 0;
     text-align: center;
 }
 
-/* Ресми Subreddit сілтемесі */
+/* Subreddit сілтемесі */
 header .subreddit-link {
     text-align: center;
     margin-top: 10px;
@@ -51,25 +51,25 @@ header .subreddit-link {
 
 header .subreddit-link a {
     text-decoration: none;
-    font-family: 'Pacifico', cursive; /* Курсив қаріп түймелер үшін */
-    font-size: 1.1em; /* Үлкен өлшем */
-    color: #fff; /* Ақ мәтін */
-    background-color: #E7926C; /* Коралл апельсин фоны */
-    padding: 8px 16px; /* Түйме үшін үлкенірек жастық */
+    font-family: 'Pacifico', cursive;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #E7926C;
+    padding: 8px 16px;
     border-radius: 15px;
     transition: background-color 0.3s ease;
 }
 
 header .subreddit-link a:hover {
-    background-color: #EEC1A4; /* Жеңіл шабдалы түске өзгерту */
+    background-color: #EEC1A4;
 }
 
-/* Medium арналар үшін */
+/* Medium тақырыптары */
 header .medium-titles {
     margin-top: 10px;
     font-family: 'Comfortaa', sans-serif;
-    font-size: 0.6em; /* Medium арналар үшін кішкентай өлшем */
-    color: #fff; /* Ақ мәтін */
+    font-size: 0.6em;
+    color: #fff;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -80,7 +80,7 @@ header .medium-titles a {
     padding: 4px 8px;
     text-decoration: none;
     color: #fff;
-    background-color: #E7926C; /* Coral түсті Medium арналар үшін */
+    background-color: #E7926C;
     border-radius: 15px;
     font-size: 0.9em;
     display: inline-block;
@@ -88,12 +88,12 @@ header .medium-titles a {
 }
 
 header .medium-titles a:hover {
-    background-color: #EEC1A4; /* Hover кезінде жеңіл шабдалы түс */
+    background-color: #EEC1A4;
 }
 
-/* Тақырыпқа арналған орын босату */
+/* Бет мазмұнының шегінісі */
 body {
-    padding-top: 200px; /* Жылжымалы тақырыпқа жеткілікті орын */
+    padding-top: 200px;
 }
 
 /* Мақала стилі */
@@ -102,8 +102,8 @@ body {
     padding: 20px;
     margin: 30px 0;
     border-radius: 15px;
-    border: 2px solid #EEC1A4; /* Жеңіл шабдалы түс */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Жеңіл көлеңке */
+    border: 2px solid #EEC1A4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     text-align: left;
     position: relative;
 }
@@ -114,13 +114,13 @@ body {
     position: absolute;
     top: -20px;
     left: 20px;
-    color: #E5B36A; /* Сары түс */
+    color: #E5B36A;
 }
 
 .medium-post h3 {
     font-family: 'Comfortaa', sans-serif;
     font-size: 1.8em;
-    color: #E7926C; /* Coral түс мақалалар үшін */
+    color: #E7926C;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
@@ -137,22 +137,12 @@ body {
 .medium-post p {
     color: #555;
     font-size: 1.1em;
-    font-family: 'Comfortaa', sans-serif; /* Мәтін үшін сүйкімді қаріп */
+    font-family: 'Comfortaa', sans-serif;
 }
 
-/* Суреттерді ортаға қою */
-.medium-post img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: none;
-}
-
-/* "Толығырақ оқу" түймесінің стилі */
+/* Толығырақ оқу түймесі */
 .read-more-btn {
-    background-color: #E7926C; /* Coral фоны */
+    background-color: #E7926C;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -165,24 +155,24 @@ body {
 }
 
 .read-more-btn:hover {
-    background-color: #C7D7CA; /* Hover кезінде жалбыз жасыл */
+    background-color: #C7D7CA;
 }
 
-/* Аяқтау стилі */
+/* Аяқтау */
 footer {
     text-align: center;
     padding: 15px;
     font-size: 1.2em;
-    background-color: #C7D7CA; /* Жалбыз жасыл аяқтау үшін */
+    background-color: #C7D7CA;
     color: #7b1fa2;
-    font-family: 'Amatic SC', cursive; /* Аяқтау үшін қолжазба қаріп */
+    font-family: 'Amatic SC', cursive;
     border-top: 2px solid #E7926C;
     margin: 0;
     width: 100%;
 }
 
 footer .kazakh-flag {
-    font-size: 1.5em; /* Қазақстан туы эмодзи үшін үлкенірек өлшем */
+    font-size: 1.5em;
 }
 
 /* Айналдыру түймелері */
@@ -195,8 +185,8 @@ footer .kazakh-flag {
 
 .arrow-btn {
     display: block;
-    background-color: #E7926C; /* Coral фон түсі */
-    color: #fff; /* Ақ мәтін */
+    background-color: #E7926C;
+    color: #fff;
     border: none;
     padding: 15px;
     margin: 5px 0;
@@ -207,13 +197,13 @@ footer .kazakh-flag {
 }
 
 .arrow-btn:hover {
-    background-color: #C7D7CA; /* Жалбыз жасыл Hover кезінде */
+    background-color: #C7D7CA;
 }
 
-/* Мобильді құрылғы */
+/* Мобильді оңтайландыру */
 @media screen and (max-width: 768px) {
     body {
-        padding: 0; /* Барлық шеттерді алып тастау */
+        padding: 0;
     }
 
     header h1 {
@@ -238,6 +228,6 @@ footer .kazakh-flag {
     }
 
     body {
-        padding-top: 300px; /* Тақырып биіктігімен сәйкестендіру */
+        padding-top: 300px;
     }
 }
