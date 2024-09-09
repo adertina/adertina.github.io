@@ -222,23 +222,28 @@
           padding: 0; /* Remove margins on mobile */
       }
 
-      /* Hide the Medium titles on mobile and replace with a button */
+      /* Hide the Medium titles on mobile and replace with buttons */
       .medium-titles {
           display: none;
       }
 
-      .blog-button {
-          display: block;
-          text-align: center;
+      .mobile-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          margin-top: 20px;
+      }
+
+      .mobile-buttons a {
           font-family: 'Pacifico', cursive;
           background-color: #E7926C;
           color: white;
           padding: 10px;
-          margin-top: 20px;
           border-radius: 15px;
+          text-decoration: none;
       }
 
-      .blog-button:hover {
+      .mobile-buttons a:hover {
           background-color: #EEC1A4;
       }
   }
@@ -322,8 +327,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <!-- Тақырыптар осында жүктеледі -->
     </div>
 
-    <!-- Mobile button for blog link -->
-    <a href="https://blog.popheadscirclejerk.com" class="blog-button">Блогқа өту</a>
+    <!-- Mobile buttons for subreddit and blog -->
+    <div class="mobile-buttons">
+        <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Subreddit</a>
+        <a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа өту</a>
+    </div>
 
 </header>
 
