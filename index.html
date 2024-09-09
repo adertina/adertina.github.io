@@ -222,19 +222,17 @@
           padding: 0; /* Remove margins on mobile */
       }
 
-      /* Hide the Medium titles on mobile and replace with buttons */
+      /* Hide the Medium titles on mobile and replace with "Visit blog" link */
       .medium-titles {
           display: none;
       }
 
-      .mobile-buttons {
-          display: flex;
-          justify-content: center;
-          gap: 10px;
-          margin-top: 20px;
+      .visit-blog {
+          text-align: center;
+          margin-top: 10px;
       }
 
-      .mobile-buttons a {
+      .visit-blog a {
           font-family: 'Pacifico', cursive;
           background-color: #E7926C;
           color: white;
@@ -243,7 +241,7 @@
           text-decoration: none;
       }
 
-      .mobile-buttons a:hover {
+      .visit-blog a:hover {
           background-color: #EEC1A4;
       }
   }
@@ -322,15 +320,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Ресми Subreddit</a>
     </div>
 
-    <!-- Medium тақырыптары -->
+    <!-- Medium тақырыптары (PC version only) -->
     <div class="medium-titles">
         <!-- Тақырыптар осында жүктеледі -->
     </div>
 
-    <!-- Mobile buttons for subreddit and blog -->
-    <div class="mobile-buttons">
-        <a href="https://reddit.com/r/popheadscirclejerk" target="_blank">Subreddit</a>
-        <a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа өту</a>
+    <!-- Mobile "Visit Blog" button -->
+    <div class="visit-blog">
+      <a href="https://blog.popheadscirclejerk.com" target="_blank">Блогқа өту</a>
     </div>
 
 </header>
