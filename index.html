@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-
 <!-- Import fonts (Creepster for horror, Comfortaa for body text, Pacifico for cursive button) -->
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap" rel="stylesheet"/>
 
@@ -58,7 +57,7 @@ function loadMediumTitles() {
     }
 }
 
-/* Embed Medium Posts from 'popheadscirclejerk' feed */
+/* Embed Medium Posts from 'popheadscirclejerk' feed with a "Read More" option */
 function loadMediumFeed() {
     let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // Embed from popheadscirclejerk feed
     fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
@@ -69,8 +68,10 @@ function loadMediumFeed() {
             let postElement = `
                 <div class="medium-post">
                     <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-                    <p>${item.description}</p>
+                    <p class="short-description">${item.description.split(' ').slice(0, 30).join(' ')}...</p>
+                    <p class="full-description" style="display:none;">${item.description}</p>
                     ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Image">` : ''}
+                    <button class="read-more-btn" onclick="toggleFullPost(this)">Read More</button>
                 </div>
             `;
             postsContainer.innerHTML += postElement;
@@ -78,35 +79,19 @@ function loadMediumFeed() {
     });
 }
 
-/* Scroll to next post */
-function scrollToNextPost() {
-    const posts = document.querySelectorAll('.medium-post');
-    let currentScroll = window.scrollY + window.innerHeight;
-    
-    for (let post of posts) {
-        if (post.offsetTop > currentScroll) {
-            window.scrollTo({
-                top: post.offsetTop,
-                behavior: 'smooth'
-            });
-            break;
-        }
-    }
-}
+/* Function to toggle full post visibility */
+function toggleFullPost(button) {
+    const fullDescription = button.previousElementSibling;
+    const shortDescription = button.previousElementSibling.previousElementSibling;
 
-/* Scroll to previous post */
-function scrollToPreviousPost() {
-    const posts = document.querySelectorAll('.medium-post');
-    let currentScroll = window.scrollY;
-    
-    for (let i = posts.length - 1; i >= 0; i--) {
-        if (posts[i].offsetTop < currentScroll) {
-            window.scrollTo({
-                top: posts[i].offsetTop,
-                behavior: 'smooth'
-            });
-            break;
-        }
+    if (fullDescription.style.display === "none") {
+        fullDescription.style.display = "block";
+        shortDescription.style.display = "none";
+        button.textContent = "Read Less";
+    } else {
+        fullDescription.style.display = "none";
+        shortDescription.style.display = "block";
+        button.textContent = "Read More";
     }
 }
 
