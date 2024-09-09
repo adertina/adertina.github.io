@@ -1,49 +1,49 @@
-/* Basic reset */
+/* Негізгі параметрлерді қалпына келтіру */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling using the light peach from the palette */
+/* Дене стильдері */
 body {
-    background-color: #F9E5D7; /* Light peach background */
+    background-color: #F9E5D7; /* Ашық шабдалы фоны */
     color: #333;
-    font-family: 'Comfortaa', sans-serif; /* Cute and professional body text with Latin and Cyrillic support */
+    font-family: 'Comfortaa', sans-serif; /* Мәтін үшін сүйкімді әрі ресми шрифт */
     line-height: 1.6;
     margin: 0;
-    padding: 50px 120px; /* Larger margins for desktop */
+    padding: 50px 120px; /* Үлкен шеттері */
     text-align: left;
+    padding-top: 200px; /* Тақырыптың астынан басталады */
 }
 
-/* Header styling, floating on top with muted teal background */
+/* Header стильдері */
 header {
     width: 100%;
-    padding: 0; /* No margins or padding */
-    background-color: #79A6A3; /* Muted teal from the palette */
+    padding: 0;
+    background-color: #79A6A3;
     background-image: url('https://64.media.tumblr.com/50a31ed363f1a172afafacf0f9a57ad2/579280c9d1a51790-d7/s640x960/0ac9acf1ed4fe402a46b3299dc0a534230d5d8ca.pnj');
-    background-size: cover; /* Ensure image covers the entire header */
-    background-position: center; /* Center the background image */
-    opacity: 0.8; /* Slight transparency for a softer look */
-    border-bottom: 2px solid #79A6A3; /* Greenish teal border for the header */
+    background-size: cover; /* Суретті толық қаптау */
+    background-position: center;
+    opacity: 0.8;
+    border-bottom: 2px solid #79A6A3;
     z-index: 1000;
-    position: fixed; /* Floating on top */
-    top: 0; /* Stick to the top */
+    position: fixed;
+    top: 0;
     left: 0;
 }
 
-/* Header title */
 header h1 {
-    font-family: 'Creepster', cursive; /* Horror font for the title */
-    font-size: 2.5em; /* Title size */
-    color: #fff; /* White title for contrast against teal background */
+    font-family: 'Creepster', cursive; /* Қорқынышты стильдегі тақырып шрифті */
+    font-size: 2.5em;
+    color: #fff;
     letter-spacing: 2px;
     margin: 0;
-    padding: 20px 0; /* Padding to center the title vertically */
+    padding: 20px 0;
     text-align: center;
 }
 
-/* Subreddit link with cursive font */
+/* Subreddit сілтемесі курсив шрифтпен */
 header .subreddit-link {
     text-align: center;
     margin-top: 10px;
@@ -51,60 +51,54 @@ header .subreddit-link {
 
 header .subreddit-link a {
     text-decoration: none;
-    font-family: 'Pacifico', cursive; /* Cursive font for button */
-    font-size: 1.1em; /* Larger size for better readability */
-    color: #fff; /* White text */
-    background-color: #E7926C; /* Coral-orange background */
-    padding: 8px 16px; /* More padding for larger button */
+    font-family: 'Pacifico', cursive; /* Курсив шрифті */
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #E7926C; /* Қызғылт-сары фон */
+    padding: 8px 16px;
     border-radius: 15px;
     transition: background-color 0.3s ease;
 }
 
 header .subreddit-link a:hover {
-    background-color: #EEC1A4; /* Soft peach on hover */
+    background-color: #EEC1A4; /* Ашық шабдалы қылшықтаған кезде */
 }
 
-/* Medium titles in the header, styled like cute smaller buttons */
+/* Medium тақырыптары үшін стиль - сүйкімді Poppins шрифті */
 header .medium-titles {
     margin-top: 10px;
-    font-family: 'Comfortaa', sans-serif;
-    font-size: 0.6em; /* Much smaller size for Medium titles */
-    color: #fff; /* White text */
+    font-family: 'Poppins', sans-serif; /* Latin and Cyrillic-supported шрифт */
+    font-size: 0.7em; /* Make the title buttons smaller */
+    color: #fff;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 header .medium-titles a {
-    margin: 2px;
-    padding: 4px 8px;
+    margin: 1px; /* Slightly smaller margin */
+    padding: 2px 6px; /* Smaller padding for buttons */
     text-decoration: none;
     color: #fff;
-    background-color: #E7926C; /* Coral-orange for the Medium titles */
+    background-color: #E7926C;
     border-radius: 15px;
-    font-size: 0.9em;
     display: inline-block;
     transition: background-color 0.3s ease;
 }
 
 header .medium-titles a:hover {
-    background-color: #EEC1A4; /* Light peach on hover */
+    background-color: #EEC1A4; /* Ашық шабдалы қылшықтаған кезде */
 }
 
-/* Adjust page content to accommodate the floating header */
-body {
-    padding-top: 200px; /* Enough space for floating header */
-}
-
-/* Post styling with cute pastel border and black heart emoji */
+/* Medium пост стильдері */
 .medium-post {
     background-color: #fff;
     padding: 20px;
     margin: 30px 0;
     border-radius: 15px;
-    border: 2px solid #EEC1A4; /* Light peach border */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Light shadow */
-    text-align: left; /* Left-align the text in posts */
+    border: 2px solid #EEC1A4;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
     position: relative;
 }
 
@@ -114,13 +108,13 @@ body {
     position: absolute;
     top: -20px;
     left: 20px;
-    color: #E5B36A; /* Yellow from the palette */
+    color: #E5B36A;
 }
 
 .medium-post h3 {
     font-family: 'Comfortaa', sans-serif;
     font-size: 1.8em;
-    color: #E7926C; /* Coral-orange for post titles */
+    color: #E7926C;
     margin-bottom: 10px;
     text-transform: uppercase;
 }
@@ -137,89 +131,69 @@ body {
 .medium-post p {
     color: #555;
     font-size: 1.1em;
-    font-family: 'Comfortaa', sans-serif; /* Cute and girly font for the body */
+    font-family: 'Comfortaa', sans-serif;
 }
 
-/* Center photos in Medium posts */
+/* Суреттерді орталықтау */
 .medium-post img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto;
     border-radius: 10px;
-    border: none; /* No borders on the photos */
 }
 
-/* Footer styling with handwritten font */
+/* "Толығырақ оқу" және "Кішігірім оқу" түймелері */
+label.read-more-label {
+    display: inline-block;
+    cursor: pointer;
+    padding: 8px 12px;
+    background-color: #E7926C; /* Қызғылт-сары фон */
+    color: white;
+    border-radius: 5px;
+    font-family: 'Pacifico', cursive; /* Курсив шрифті */
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+label.read-more-label:hover {
+    background-color: #EEC1A4;
+}
+
+/* Толық мазмұнды әдепкі бойынша жасыру */
+.full-content {
+    display: none;
+}
+
+/* Белгіленген кезде толық мазмұнды көрсету */
+.read-more-toggle:checked + .full-content {
+    display: block;
+}
+
+.read-more-toggle:not(:checked) + .full-content {
+    display: none;
+}
+
+.read-more-toggle:checked + .full-content + .read-more-label::before {
+    content: "Кішігірім оқу"; /* "Read less" in Kazakh */
+}
+
+.read-more-toggle:not(:checked) + .full-content + .read-more-label::before {
+    content: "Толығырақ оқу"; /* "Read more" in Kazakh */
+}
+
+/* Footer стильдері */
 footer {
     text-align: center;
     padding: 15px;
     font-size: 1.2em;
-    background-color: #C7D7CA; /* Mint green for footer */
+    background-color: #C7D7CA;
     color: #7b1fa2;
-    font-family: 'Amatic SC', cursive; /* Handwritten font for footer */
+    font-family: 'Amatic SC', cursive;
     border-top: 2px solid #E7926C;
-    margin: 0; /* Remove footer margin */
-    width: 100%;
+    margin-top: 20px;
 }
 
 footer .kazakh-flag {
-    font-size: 1.5em; /* Bigger flag emoji for emphasis */
-}
-
-/* Cuter Arrow Buttons for Scrolling */
-.scroll-arrows {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.arrow-btn {
-    display: block;
-    background-color: #E7926C; /* Coral-orange for the button background */
-    color: #fff; /* White text */
-    border: none;
-    padding: 15px;
-    margin: 5px 0;
-    border-radius: 50%;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.arrow-btn:hover {
-    background-color: #C7D7CA; /* Mint green on hover */
-}
-
-/* Mobile optimization */
-@media screen and (max-width: 768px) {
-    body {
-        padding: 0; /* Remove all padding */
-    }
-
-    header h1 {
-        font-size: 2.3em;
-    }
-
-    header .medium-titles {
-        font-size: 0.7em;
-    }
-
-    .medium-post h3 {
-        font-size: 1.5em;
-    }
-
-    #postmargin {
-        margin: 0;
-        padding: 15px;
-    }
-
-    section {
-        padding: 0;
-    }
-
-    body {
-        padding-top: 300px; /* Ensure this matches the actual height of the header */
-    }
+    font-size: 1.5em;
 }
