@@ -5,7 +5,6 @@
 
 <!-- Шрифттерді енгізу -->
 <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Comfortaa:wght@400;700&family=Pacifico&family=Amatic+SC&display=swap&subset=cyrillic,latin" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css">
 
 <title>POPHEADSCIRCLEJERK.COM</title>
 <link rel="shortcut icon" href="{Favicon}">
@@ -14,6 +13,274 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Стиль бөлімі -->
+<style>
+  /* Негізгі параметрлерді қалпына келтіру */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  /* Дене стильдері */
+  body {
+      background-color: #F9E5D7; /* Ашық шабдалы фоны */
+      color: #333;
+      font-family: 'Comfortaa', sans-serif; /* Мәтін үшін сүйкімді әрі ресми шрифт */
+      line-height: 1.6;
+      margin: 0;
+      padding: 50px 120px; /* Үлкен шеттері */
+      text-align: left;
+      padding-top: 200px; /* Тақырыптың астынан басталады */
+  }
+
+  /* Header стильдері */
+  header {
+      width: 100%;
+      padding: 0;
+      background-color: #79A6A3;
+      background-image: url('https://64.media.tumblr.com/50a31ed363f1a172afafacf0f9a57ad2/579280c9d1a51790-d7/s640x960/0ac9acf1ed4fe402a46b3299dc0a534230d5d8ca.pnj');
+      background-size: cover; /* Суретті толық қаптау */
+      background-position: center;
+      opacity: 0.8;
+      border-bottom: 2px solid #79A6A3;
+      z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+  }
+
+  header h1 {
+      font-family: 'Creepster', cursive; /* Қорқынышты стильдегі тақырып шрифті */
+      font-size: 2.5em;
+      color: #fff;
+      letter-spacing: 2px;
+      margin: 0;
+      padding: 20px 0;
+      text-align: center;
+  }
+
+  /* Subreddit сілтемесі курсив шрифтпен */
+  header .subreddit-link {
+      text-align: center;
+      margin-top: 10px;
+  }
+
+  header .subreddit-link a {
+      text-decoration: none;
+      font-family: 'Pacifico', cursive; /* Курсив шрифті */
+      font-size: 1.1em;
+      color: #fff;
+      background-color: #E7926C; /* Қызғылт-сары фон */
+      padding: 8px 16px;
+      border-radius: 15px;
+      transition: background-color 0.3s ease;
+  }
+
+  header .subreddit-link a:hover {
+      background-color: #EEC1A4; /* Ашық шабдалы қылшықтаған кезде */
+  }
+
+  /* Medium тақырыптары үшін стиль - сүйкімді Poppins шрифті */
+  header .medium-titles {
+      margin-top: 10px;
+      font-family: 'Poppins', sans-serif; /* Latin and Cyrillic-supported шрифт */
+      font-size: 0.7em; /* Make the title buttons smaller */
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+
+  header .medium-titles a {
+      margin: 1px; /* Slightly smaller margin */
+      padding: 2px 6px; /* Smaller padding for buttons */
+      text-decoration: none;
+      color: #fff;
+      background-color: #E7926C;
+      border-radius: 15px;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+  }
+
+  header .medium-titles a:hover {
+      background-color: #EEC1A4; /* Ашық шабдалы қылшықтаған кезде */
+  }
+
+  /* Medium пост стильдері */
+  .medium-post {
+      background-color: #fff;
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 15px;
+      border: 2px solid #EEC1A4;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: left;
+      position: relative;
+  }
+
+  .medium-post:before {
+      content: "🖤";
+      font-size: 1.5em;
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      color: #E5B36A;
+  }
+
+  .medium-post h3 {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.8em;
+      color: #E7926C;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+  }
+
+  .medium-post a {
+      text-decoration: none;
+      color: #E7926C;
+  }
+
+  .medium-post a:hover {
+      text-decoration: underline;
+  }
+
+  .medium-post p {
+      color: #555;
+      font-size: 1.1em;
+      font-family: 'Comfortaa', sans-serif;
+  }
+
+  /* Суреттерді орталықтау */
+  .medium-post img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+  }
+
+  /* "Толығырақ оқу" және "Кішігірім оқу" түймелері */
+  label.read-more-label {
+      display: inline-block;
+      cursor: pointer;
+      padding: 8px 12px;
+      background-color: #E7926C; /* Қызғылт-сары фон */
+      color: white;
+      border-radius: 5px;
+      font-family: 'Pacifico', cursive; /* Курсив шрифті */
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+  }
+
+  label.read-more-label:hover {
+      background-color: #EEC1A4;
+  }
+
+  /* Толық мазмұнды әдепкі бойынша жасыру */
+  .full-content {
+      display: none;
+  }
+
+  /* Белгіленген кезде толық мазмұнды көрсету */
+  .read-more-toggle:checked + .full-content {
+      display: block;
+  }
+
+  .read-more-toggle:not(:checked) + .full-content {
+      display: none;
+  }
+
+  .read-more-toggle:checked + .full-content + .read-more-label::before {
+      content: "Кішігірім оқу"; /* "Read less" in Kazakh */
+  }
+
+  .read-more-toggle:not(:checked) + .full-content + .read-more-label::before {
+      content: "Толығырақ оқу"; /* "Read more" in Kazakh */
+  }
+
+  /* Footer стильдері */
+  footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 1.2em;
+      background-color: #C7D7CA;
+      color: #7b1fa2;
+      font-family: 'Amatic SC', cursive;
+      border-top: 2px solid #E7926C;
+      margin-top: 20px;
+  }
+
+  footer .kazakh-flag {
+      font-size: 1.5em;
+  }
+</style>
+
+<!-- RSS-ті өңдеу үшін JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+/* Эмодзилер тізімі */
+const emojis = ['🍑', '💋', '🔥', '🍆', '👅', '💦', '😈', '🖤', '💃', '🚬', '💨', '💄', '👠'];
+
+/* Эмодзилерді кездейсоқ таңдау */
+function getRandomEmoji() {
+    return emojis[Math.floor(Math.random() * emojis.length)];
+}
+
+/* Medium Тақырыптарын Жүктеу */
+function loadMediumTitles() {
+    let mediumRSS = 'https://medium.com/feed/@popheadscirclejerk'; // @popheadscirclejerk feed-тен тақырыптарды алу
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const mediumTitles = document.querySelector('.medium-titles');
+        data.items.forEach(item => {
+            let emojiBefore = getRandomEmoji();
+            let emojiAfter = getRandomEmoji();
+            let mediumTitleElement = `<a href="${item.link}" target="_blank">${emojiBefore} ${item.title} ${emojiAfter}</a>`;
+            mediumTitles.innerHTML += mediumTitleElement;
+        });
+    });
+}
+
+/* Medium Посттарын Жүктеу */
+function loadMediumFeed() {
+    let mediumRSS = 'https://medium.com/feed/popheadscirclejerk'; // popheadscirclejerk feed-тен посттарды алу
+    fetch(`https://rss2json.com/api.json?rss_url=${encodeURIComponent(mediumRSS)}`)
+    .then(response => response.json())
+    .then(data => {
+        const postsContainer = document.getElementById('medium-posts');
+        data.items.forEach((item, index) => {
+            let truncatedDescription = item.description.split(" ").slice(0, 30).join(" ") + '...'; // Алғашқы 30 сөзін көрсету
+            let postElement = `
+                <div class="medium-post">
+                    <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+                    <p>${truncatedDescription}</p>
+
+                    <!-- Белгіленген кезде "Толығырақ оқу" түймесін іске қосу -->
+                    <input type="checkbox" class="read-more-toggle" id="toggle${index}" />
+                    <div class="full-content">
+                        <p>${item.description}</p>
+                        ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Image">` : ''}
+                    </div>
+
+                    <!-- "Толығырақ оқу" түймесі ретінде белгіні көрсету -->
+                    <label for="toggle${index}" class="read-more-label"></label>
+                </div>
+            `;
+            postsContainer.innerHTML += postElement;
+        });
+    });
+}
+
+/* Барлық фидтерді жүктеу */
+document.addEventListener('DOMContentLoaded', () => {
+    loadMediumTitles();
+    loadMediumFeed();
+});
+</script>
 
 </head>
 
@@ -41,9 +308,5 @@
   жасалған Inzhu Алматыдан <333 <span class="kazakh-flag">🇰🇿</span>
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="script.js"></script>
-
 </body>
 </html>
- 
